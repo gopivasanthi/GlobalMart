@@ -1,0 +1,10 @@
+﻿@model Mart.Web.Models.ProductCategory
+
+<form class="form-container" asp-controller="ProductAdmin" asp-action="AddCategory" method="post">
+    <div>
+        <label for="CategoryName" class="form-control">Product Category Name:</label>
+        <input type="text" class="form-control" id="CategoryName" name="CategoryName" value="@Model.CategoryName" required />
+    </div>
+    <input type="hidden" id="CategoryId" name="CategoryId" value="@Model.CategoryId" />
+    <input type="submit" value="Add Category" class="btn btn-primary" />
+</form>

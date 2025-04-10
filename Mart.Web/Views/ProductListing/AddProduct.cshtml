@@ -1,0 +1,22 @@
+﻿@model Mart.Web.Models.Product
+
+<form class="form-container" asp-controller="ProductListing" asp-action="AddProduct" method="post">
+    <div>
+        <label for="productName" class="form-control">Product Name:</label>
+        <input type="text" class="form-control" id="ProductName" name="ProductName" value="@Model.ProductName" required />
+    </div>
+    <div>
+        <label for="ProductDescription" class="form-control">Product Description:</label>
+        <input type="text" class="form-control" id="ProductDescription" name="ProductDescription" value="@Model.ProductDescription" required />
+    </div>
+    <div>
+        <label for="ProductManufactureDate" class="form-control">Manufactored On:</label>
+        <input type="date" class="form-control" id="ProductManufactureDate" name="ProductManufactureDate" value="@Model.ProductManufactureDate" required />
+    </div>
+    <div>
+        <label for="ProductExpiryDate" class="form-control">Expires On:</label>
+        <input type="date" class="form-control" id="ProductExpiryDate" name="ProductExpiryDate" value="@Model.ProductExpiryDate" required />
+    </div>
+    <input type="hidden" id="ProductId" name="ProductId" value="@Model.ProductId" />
+    <input type="submit" value="Add Product" class="btn btn-primary" />
+</form>
