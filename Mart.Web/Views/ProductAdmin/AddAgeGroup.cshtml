@@ -2,6 +2,10 @@
 
 <form class="form-container" asp-controller="ProductAdmin" asp-action="AddAgeGroup" method="post">
     <div>
+        <label for="ProductAgeGroupName" class="form-control">Product Age Group Name:</label>
+        <input type="text" class="form-control" id="ProductAgeGroupName" name="ProductAgeGroupName" value="@Model.ProductAgeGroupName" />
+    </div>
+    <div>
         <label for="ProductAgeGroupStartAge" class="form-control">Product Age Group Start Age:</label>
         <input type="text" class="form-control" id="ProductAgeGroupStartAge" name="ProductAgeGroupStartAge" value="@Model.ProductAgeGroupStartAge" />
     </div>
