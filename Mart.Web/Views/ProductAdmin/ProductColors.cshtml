@@ -16,6 +16,7 @@
         <thead>
             <tr>
                 <th>Color Name</th>
+                <th>Color Code</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -24,6 +25,7 @@
             {
                 <tr>
                     <td>@color?.ProductColorName</td>
+                    <td>@color?.ProductColorAsciiCode</td>
                     <td>
                         <a href="@Url.Action("EditColor", "ProductAdmin", new { id = color?.ProductColorId })"
                            class="btn btn-primary btn-sm">
