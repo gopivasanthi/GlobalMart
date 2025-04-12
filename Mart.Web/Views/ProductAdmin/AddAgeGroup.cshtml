@@ -1,0 +1,14 @@
+﻿@model Mart.Web.Models.ProductAgeGroup
+
+<form class="form-container" asp-controller="ProductAdmin" asp-action="AddAgeGroup" method="post">
+    <div>
+        <label for="ProductAgeGroupStartAge" class="form-control">Product Age Group Start Age:</label>
+        <input type="text" class="form-control" id="ProductAgeGroupStartAge" name="ProductAgeGroupStartAge" value="@Model.ProductAgeGroupStartAge" />
+    </div>
+    <div>
+        <label for="ProductAgeGroupEndAge" class="form-control">Product Age Group End Age:</label>
+        <input type="text" class="form-control" id="ProductAgeGroupEndAge" name="ProductAgeGroupEndAge" value="@Model.ProductAgeGroupEndAge" />
+    </div>
+    <input type="hidden" id="ProductAgeGroupId" name="ProductAgeGroupId" value="@Model.ProductAgeGroupId" />
+    <input type="submit" value="Add Age Group" class="btn btn-primary" />
+</form>

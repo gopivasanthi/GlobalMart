@@ -1,0 +1,10 @@
+﻿@model Mart.Web.Models.ProductBrand
+
+<form class="form-container" asp-controller="ProductAdmin" asp-action="AddBrand" method="post">
+    <div>
+        <label for="ProductBrandName" class="form-control">Product Brand Name:</label>
+        <input type="text" class="form-control" id="ProductBrandName" name="ProductBrandName" value="@Model.ProductBrandName" required />
+    </div>
+    <input type="hidden" id="ProductBrandId" name="ProductBrandId" value="@Model.ProductBrandId" />
+    <input type="submit" value="Add Brand" class="btn btn-primary" />
+</form>

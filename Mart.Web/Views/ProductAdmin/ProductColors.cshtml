@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Mart.Web.Models.ProductColor>
+
+@{
+    ViewData["Title"] = "Product Colors";
+}
+
+<h1>Product Colors</h1>
+
+<p>
+    <a asp-controller="ProductAdmin" asp-action="AddColor" class="btn btn-primary">Create New Color</a>
+</p>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Color Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var color in Model)
+            {
+                <tr>
+                    <td>@color?.ProductColorName</td>
+                    <td>
+                        <a href="@Url.Action("EditColor", "ProductAdmin", new { id = color?.ProductColorId })"
+                           class="btn btn-primary btn-sm">
+                            Edit
+                        </a>
+                        <a href="@Url.Action("DeleteColor", "ProductAdmin", new { id = color?.ProductColorId })"
+                           class="btn btn-primary btn-sm">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        No colors found.
+    </div>
+}

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Mart.Web.Models.ProductBrand>
+
+@{
+    ViewData["Title"] = "Product Categories";
+}
+
+<h1>Product Brands</h1>
+
+<p>
+    <a asp-controller="ProductAdmin" asp-action="AddBrand" class="btn btn-primary">Create New Brand</a>
+</p>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Brand Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var brand in Model)
+            {
+                <tr>
+                    <td>@brand?.ProductBrandName</td>
+                    <td>
+                        <a href="@Url.Action("EditBrand", "ProductAdmin", new { id = brand?.ProductBrandId })"
+                           class="btn btn-primary btn-sm">
+                            Edit
+                        </a>
+                        <a href="@Url.Action("DeleteBrand", "ProductAdmin", new { id = brand?.ProductBrandId })"
+                           class="btn btn-primary btn-sm">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        No brands found.
+    </div>
+}

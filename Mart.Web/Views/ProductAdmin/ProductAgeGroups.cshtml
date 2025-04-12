@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Mart.Web.Models.ProductAgeGroup>
+
+@{
+    ViewData["Title"] = "Product Age Group";
+}
+
+<h1>Product Age Group</h1>
+
+<p>
+    <a asp-controller="ProductAdmin" asp-action="AddAgeGroup" class="btn btn-primary">Create New Age Group</a>
+</p>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Start Age</th>
+                <th>End Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ageGroup in Model)
+            {
+                <tr>
+                    <td>@ageGroup?.ProductAgeGroupStartAge</td>
+                    <td>@ageGroup?.ProductAgeGroupEndAge</td>
+                    <td>
+                        <a href="@Url.Action("EditAgeGroup", "ProductAdmin", new { id = ageGroup?.ProductAgeGroupId })"
+                           class="btn btn-primary btn-sm">
+                            Edit
+                        </a>
+                        <a href="@Url.Action("DeleteAgeGroup", "ProductAdmin", new { id = ageGroup?.ProductAgeGroupId })"
+                           class="btn btn-primary btn-sm">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        No age groups found.
+    </div>
+}

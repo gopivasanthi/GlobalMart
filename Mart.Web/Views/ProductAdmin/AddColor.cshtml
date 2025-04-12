@@ -1,0 +1,10 @@
+﻿@model Mart.Web.Models.ProductColor
+
+<form class="form-container" asp-controller="ProductAdmin" asp-action="AddColor" method="post">
+    <div>
+        <label for="ProductColorName" class="form-control">Product Color Name:</label>
+        <input type="text" class="form-control" id="ProductColorName" name="ProductColorName" value="@Model.ProductColorName" required />
+    </div>
+    <input type="hidden" id="ProductColorId" name="ProductColorId" value="@Model.ProductColorId" />
+    <input type="submit" value="Add Color" class="btn btn-primary" />
+</form>
