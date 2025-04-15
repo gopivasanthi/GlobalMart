@@ -1,4 +1,4 @@
-﻿@model Mart.Web.Models.Product
+﻿@model Mart.Web.Models.ViewModels.ProductViewModel
 
 <form class="form-container" asp-controller="ProductListing" asp-action="AddProduct" method="post">
     <div>
@@ -16,6 +16,42 @@
     <div>
         <label for="ProductExpiryDate" class="form-control">Expires On:</label>
         <input type="date" class="form-control" id="ProductExpiryDate" name="ProductExpiryDate" value="@Model.ProductExpiryDate" required />
+    </div>
+    <div>
+        <label for="ProductCategory" class="form-control">Product Category:</label>
+        @Html.DropDownListFor(
+                 model => model.ProductCategory,
+                 Model.ProductCategories,
+                 "Select Category",
+                 new { @class = "form-control", id = "ProductCategory" }
+                 )
+    </div>
+    <div>
+        <label for="ProductBrand" class="form-control">Product Brand:</label>
+        @Html.DropDownListFor(
+                 model => model.ProductBrand,
+                 Model.ProductBrands,
+                 "Select Brand",
+                 new { @class = "form-control", id = "ProductBrand" }
+                 )
+    </div>
+    <div>
+        <label for="ProductColor" class="form-control">Product Color:</label>
+        @Html.DropDownListFor(
+                 model => model.ProductColor,
+                 Model.ProductColors,
+                 "Select Color",
+                 new { @class = "form-control", id = "ProductColor" }
+                 )
+    </div>
+    <div>
+        <label for="ProductAgeGroup" class="form-control">Product Category:</label>
+        @Html.DropDownListFor(
+                 model => model.ProductAgeGroup,
+                 Model.ProductAgeGroups,
+                 "Select Age Group",
+                 new { @class = "form-control", id = "ProductAgeGroup" }
+                 )
     </div>
     <input type="hidden" id="ProductId" name="ProductId" value="@Model.ProductId" />
     <input type="submit" value="Add Product" class="btn btn-primary" />
