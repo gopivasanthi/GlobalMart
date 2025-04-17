@@ -12,10 +12,10 @@ namespace Mart.Web.Models.ViewModels
         public string? ProductDescription { get; set; }
         public DateTime? ProductManufactureDate { get; set; }
         public DateTime? ProductExpiryDate { get; set; }
-        public ProductCategory? ProductCategory { get; set; }
-        public ProductBrand? ProductBrand { get; set; }
-        public ProductColor? ProductColor { get; set; }
-        public ProductAgeGroup? ProductAgeGroup { get; set; }
+        public int? CategoryId { get; set; }
+        public int? ProductBrandId { get; set; }
+        public int? ProductColorId { get; set; }
+        public int? ProductAgeGroupId { get; set; }
         public IEnumerable<SelectListItem>? ProductCategories { get; set; }
         public IEnumerable<SelectListItem>? ProductColors { get; set; }
         public IEnumerable<SelectListItem>? ProductAgeGroups { get; set; }

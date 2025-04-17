@@ -9,6 +9,11 @@ namespace Mart.Web.Controllers
     {
         private readonly ApplicationDbContext _dbContext = dbContext;
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         #region Product Categories
         public async Task<IActionResult> ProductCategories()
         {

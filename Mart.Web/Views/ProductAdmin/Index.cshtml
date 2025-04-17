@@ -1,0 +1,48 @@
+﻿﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Dashboard</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Product Categories</h5>
+                    <p class="card-text">Add, Remove or Update the Categories for the Product</p>
+                    <a href="@Url.Action("ProductCategories", "ProductAdmin")" class="btn btn-primary">Manage Categories</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Product Brands</h5>
+                    <p class="card-text">Add, Remove or Update the Brands for the Product</p>
+                    <a href="@Url.Action("ProductBrands", "ProductAdmin")" class="btn btn-primary">Manage Brands</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Product Colors</h5>
+                    <p class="card-text">Add, Remove or Update the Colors for the Product</p>
+                    <a href="@Url.Action("ProductColors", "ProductAdmin")" class="btn btn-primary">Manage Colors</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Product Age Limits</h5>
+                    <p class="card-text">Add, Remove or Update the Age limits for the Product</p>
+                    <a href="@Url.Action("ProductAgeGroups", "ProductAdmin")" class="btn btn-primary">Manage Age Limits</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

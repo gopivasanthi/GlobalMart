@@ -20,37 +20,37 @@
     <div>
         <label for="ProductCategory" class="form-control">Product Category:</label>
         @Html.DropDownListFor(
-                 model => model.ProductCategory,
+                 model => model.CategoryId,
                  Model.ProductCategories,
                  "Select Category",
-                 new { @class = "form-control", id = "ProductCategory" }
+                 new { @class = "form-control", @id = "ProductCategory" }
                  )
     </div>
     <div>
         <label for="ProductBrand" class="form-control">Product Brand:</label>
         @Html.DropDownListFor(
-                 model => model.ProductBrand,
+                 model => model.ProductBrandId,
                  Model.ProductBrands,
                  "Select Brand",
-                 new { @class = "form-control", id = "ProductBrand" }
+                 new { @class = "form-control", @id = "ProductBrand" }
                  )
     </div>
     <div>
         <label for="ProductColor" class="form-control">Product Color:</label>
         @Html.DropDownListFor(
-                 model => model.ProductColor,
+                 model => model.ProductColorId,
                  Model.ProductColors,
                  "Select Color",
-                 new { @class = "form-control", id = "ProductColor" }
+                 new { @class = "form-control", @id = "ProductColor" }
                  )
     </div>
     <div>
         <label for="ProductAgeGroup" class="form-control">Product Category:</label>
         @Html.DropDownListFor(
-                 model => model.ProductAgeGroup,
+                 model => model.ProductAgeGroupId,
                  Model.ProductAgeGroups,
                  "Select Age Group",
-                 new { @class = "form-control", id = "ProductAgeGroup" }
+                 new { @class = "form-control", @id = "ProductAgeGroup" }
                  )
     </div>
     <input type="hidden" id="ProductId" name="ProductId" value="@Model.ProductId" />

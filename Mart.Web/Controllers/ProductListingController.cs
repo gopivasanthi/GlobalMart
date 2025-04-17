@@ -65,14 +65,30 @@ namespace Mart.Web.Controllers
             return View(productViewModel);
         }
         [HttpPost]
-        public async Task<IActionResult> AddProduct(Product product)
+        public async Task<IActionResult> AddProduct(ProductViewModel productViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(product);
+                return View(productViewModel);
             }
             try
             {
+                var productBrand = await _dbContext.ProductBrands.FindAsync(productViewModel.ProductBrandId);
+                var productAgeGroup = await _dbContext.ProductAgeGroups.FindAsync(productViewModel.ProductAgeGroupId);
+                var productCategory = await _dbContext.ProductCategories.FindAsync(productViewModel.CategoryId);
+
+                Product product = new()
+                {
+                    ProductId = productViewModel.ProductId,
+                    ProductAgeGroup = productAgeGroup,
+                    ProductName = productViewModel.ProductName,
+                    ProductDescription = productViewModel.ProductDescription,
+                    ProductCategory = productCategory,
+                    ProductBrand = productBrand,
+                    ProductColor = await _dbContext.ProductColors.FindAsync(productViewModel.ProductColorId),
+                    ProductExpiryDate = productViewModel.ProductExpiryDate,
+                    ProductManufactureDate = productViewModel.ProductManufactureDate
+                };
                 _dbContext.Products.Add(product);
                 await _dbContext.SaveChangesAsync();
                 return Redirect("Index");
@@ -80,7 +96,7 @@ namespace Mart.Web.Controllers
             catch (Exception ex)
             {
                 ModelState.AddModelError("Error", ex.Message);
-                return View(product);
+                return View(productViewModel);
             }
         }
     }
