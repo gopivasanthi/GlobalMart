@@ -1,0 +1,45 @@
+﻿@model Mart.Web.Models.ViewModels.CreateAccountViewModel
+
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+<form method="post" asp-action="CreateAccount" asp-controller="Account" class="form">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label for="FirstName">First Name</label>
+        <input asp-for="FirstName" name="FirstName" id="FirstName" class="form-control" value="@Model.FirstName" />
+        <span class="text-danger" asp-validation-for="FirstName"></span>
+    </div>
+    <div class="form-group">
+        <label for="LastName">Last Name</label>
+        <input asp-for="LastName" name="LastName" id="LastName" class="form-control" value="@Model.LastName" />
+        <span class="text-danger" asp-validation-for="LastName"></span>
+    </div>
+    <div class="form-group">
+        <label for="Address">Address</label>
+        <input asp-for="Address" name="Address" id="Address" class="form-control" value="@Model.Address" />
+        <span class="text-danger" asp-validation-for="Address"></span>
+    </div>
+        <div class="form-group">
+        <label for="EmailId">Email Id</label>
+        <input asp-for="EmailId" name="EmailId" id="EmailId" class="form-control" value="@Model.EmailId" />
+        <span class="text-danger" asp-validation-for="EmailId"></span>
+    </div>
+    <div class="form-group">
+        <label for="ConfirmEmailId">Confirm Email Id</label>
+        <input asp-for="ConfirmEmailId" name="ConfirmEmailId" id="ConfirmEmailId" class="form-control" value="@Model.ConfirmEmailId" />
+        <span class="text-danger" asp-validation-for="ConfirmEmailId"></span>
+    </div>
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input asp-for="Password" name="Password" id="Password" class="form-control" value="@Model.Password" />
+        <span class="text-danger" asp-validation-for="Password"></span>
+    </div>
+    <div class="form-group">
+        <label for="ConfirmPassword">Confirm Password</label>
+        <input asp-for="ConfirmPassword" name="ConfirmPassword" id="ConfirmPassword" class="form-control" value="@Model.ConfirmPassword" />
+        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Create Account"/>
+</form>

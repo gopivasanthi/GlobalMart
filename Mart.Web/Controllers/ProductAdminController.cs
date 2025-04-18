@@ -1,10 +1,12 @@
 ﻿using Mart.Web.DbContext;
 using Mart.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mart.Web.Controllers
 {
+    [Authorize]
     public class ProductAdminController(ApplicationDbContext dbContext) : Controller
     {
         private readonly ApplicationDbContext _dbContext = dbContext;
