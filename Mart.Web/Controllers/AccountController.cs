@@ -19,7 +19,7 @@ namespace Mart.Web.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult CreateAccount(CreateAccountViewModel createAccountViewModel)
+        public async Task<IActionResult> CreateAccount(CreateAccountViewModel createAccountViewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -44,7 +44,7 @@ namespace Mart.Web.Controllers
                 UserName = createAccountViewModel.EmailId,
             };
 
-            _userManager.CreateAsync(accountUser, createAccountViewModel.Password);
+            await _userManager.CreateAsync(accountUser, createAccountViewModel.Password);
             return View("AccountCreationSuccessful");
         }
 
