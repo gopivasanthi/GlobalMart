@@ -43,6 +43,11 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = "/Account/AccessDenied";
 });
 
+builder.Services.AddAuthorizationBuilder()
+        .AddPolicy("MustBeAnAdmin", policy => policy.RequireClaim("Role", "Admin")
+                                                    .RequireClaim("Role", "Member"))
+        .AddPolicy("MustBeAMember", policy => policy.RequireClaim("Role", "Member"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

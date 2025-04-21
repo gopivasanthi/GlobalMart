@@ -1,12 +1,14 @@
 ﻿using Mart.Web.DbContext;
 using Mart.Web.Models;
 using Mart.Web.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Mart.Web.Controllers
 {
+    [Authorize(Policy = "MustBeAMember")]
     public class ProductListingController(ApplicationDbContext dbContext) : Controller
     {
         private readonly ApplicationDbContext _dbContext = dbContext;
@@ -17,6 +19,7 @@ namespace Mart.Web.Controllers
             return View(listOfProducts);
         }
         [HttpGet]
+        [Authorize(Policy = "MustBeAnAdmin")]
         public async Task<IActionResult> AddProduct()
         {
             ProductViewModel productViewModel = new();

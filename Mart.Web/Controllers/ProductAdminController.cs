@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Mart.Web.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "MustBeAnAdmin")]
     public class ProductAdminController(ApplicationDbContext dbContext) : Controller
     {
         private readonly ApplicationDbContext _dbContext = dbContext;
